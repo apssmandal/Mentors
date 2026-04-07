@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mentor Preference Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+        .form-container {
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 500px;
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #555;
+        }
+        input[type="text"], input[type="number"], select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .radio-group {
+            display: flex;
+            gap: 20px;
+            margin-top: 5px;
+        }
+        .radio-group label {
+            font-weight: normal;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .hidden-section {
+            display: none;
+            background: #f9f9f9;
+            padding: 15px;
+            border-left: 4px solid #007BFF;
+            margin-top: 10px;
+            border-radius: 4px;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        button:disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+
+<div class="form-container">
+    <h2>Mentor Preference</h2>
+    
+    <form id="studentForm" action="https://freeforms-app.web.app/f/QR9MwisFxKlgr5pBc3xw" method="POST">
+        
+        <input type="hidden" name="_subject" value="New Mentor Preference Submission" />
+        <input type="text" name="_honeypot" style="display:none" tabindex="-1" autocomplete="off" />
+
+        <div class="form-group">
+            <label for="studentName">Name *</label>
+            <input type="text" id="studentName" name="studentName" required>
+        </div>
+
+        <div class="form-group">
+            <label for="rollNo">Class Roll No (Max 10 digits) *</label>
+            <input type="text" id="rollNo" name="rollNo" maxlength="10" pattern="\d{1,10}" title="Please enter up to 10 digits" required>
+        </div>
+
+        <div class="form-group">
+            <label>Admission Mode *</label>
+            <div class="radio-group">
+                <label>
+                    <input type="radio" name="admissionMode" value="GATE" onchange="toggleSections()" required> GATE
+                </label>
+                <label>
+                    <input type="radio" name="admissionMode" value="NON_GATE" onchange="toggleSections()"> NON GATE
+                </label>
+            </div>
+        </div>
+
+        <div id="gateSection" class="hidden-section">
+            <div class="form-group">
+                <label for="gateScore">GATE Score *</label>
+                <input type="number" id="gateScore" name="gateScore">
+            </div>
+        </div>
+
+        <div id="nonGateSection" class="hidden-section">
+            <div class="form-group">
+                <label for="testScore">Admission Test Score *</label>
+                <input type="number" id="testScore" name="testScore">
+            </div>
+            <div class="form-group">
+                <label for="cgpa">B.Tech CGPA *</label>
+                <input type="number" step="0.01" id="cgpa" name="cgpa">
+            </div>
+        </div>
+
+        <hr style="border: 0; border-top: 1px solid #eee; margin: 25px 0;">
+
+        <div class="form-group">
+            <label>Mentor Preferences</label>
+            
+            <div class="form-group">
+                <label for="choice1" style="font-weight: normal;">1st Choice *</label>
+                <select id="choice1" class="person-choice" name="choice1" required>
+                    <option value="" disabled selected>Select a mentor</option>
+                    <option value="Arpita Ray">Arpita Ray</option>
+                    <option value="Chandrayee Chowdhury">Chandrayee Chowdhury</option>
+                    <option value="Iti Saha Misra">Iti Saha Misra</option>
+                    <option value="Nandini Mukherjee">Nandini Mukherjee</option>
+                    <option value="Pampa Sadhukhan">Pampa Sadhukhan</option>
+                    <option value="Punyasha Chatterjee">Punyasha Chatterjee</option>
+                    <option value="Sarbani Roy">Sarbani Roy</option>
+                    <option value="Sarmistha Neogy">Sarmistha Neogy</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="choice2" style="font-weight: normal;">2nd Choice *</label>
+                <select id="choice2" class="person-choice" name="choice2" required>
+                    <option value="" disabled selected>Select a mentor</option>
+                    <option value="Arpita Ray">Arpita Ray</option>
+                    <option value="Chandrayee Chowdhury">Chandrayee Chowdhury</option>
+                    <option value="Iti Saha Misra">Iti Saha Misra</option>
+                    <option value="Nandini Mukherjee">Nandini Mukherjee</option>
+                    <option value="Pampa Sadhukhan">Pampa Sadhukhan</option>
+                    <option value="Punyasha Chatterjee">Punyasha Chatterjee</option>
+                    <option value="Sarbani Roy">Sarbani Roy</option>
+                    <option value="Sarmistha Neogy">Sarmistha Neogy</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="choice3" style="font-weight: normal;">3rd Choice *</label>
+                <select id="choice3" class="person-choice" name="choice3" required>
+                    <option value="" disabled selected>Select a mentor</option>
+                    <option value="Arpita Ray">Arpita Ray</option>
+                    <option value="Chandrayee Chowdhury">Chandrayee Chowdhury</option>
+                    <option value="Iti Saha Misra">Iti Saha Misra</option>
+                    <option value="Nandini Mukherjee">Nandini Mukherjee</option>
+                    <option value="Pampa Sadhukhan">Pampa Sadhukhan</option>
+                    <option value="Punyasha Chatterjee">Punyasha Chatterjee</option>
+                    <option value="Sarbani Roy">Sarbani Roy</option>
+                    <option value="Sarmistha Neogy">Sarmistha Neogy</option>
+                </select>
+            </div>
+        </div>
+
+        <button type="submit" id="submitBtn">Submit Form</button>
+    </form>
+</div>
+
+<script>
+    // --- UI Logic: Conditional Sections ---
+    function toggleSections() {
+        const mode = document.querySelector('input[name="admissionMode"]:checked')?.value;
+        const gateSection = document.getElementById('gateSection');
+        const nonGateSection = document.getElementById('nonGateSection');
+        
+        const gateInput = document.getElementById('gateScore');
+        const testInput = document.getElementById('testScore');
+        const cgpaInput = document.getElementById('cgpa');
+
+        if (mode === 'GATE') {
+            gateSection.style.display = 'block';
+            nonGateSection.style.display = 'none';
+            
+            gateInput.required = true;
+            testInput.required = false;
+            cgpaInput.required = false;
+            
+            testInput.value = '';
+            cgpaInput.value = '';
+        } else if (mode === 'NON_GATE') {
+            gateSection.style.display = 'none';
+            nonGateSection.style.display = 'block';
+            
+            gateInput.required = false;
+            testInput.required = true;
+            cgpaInput.required = true;
+            
+            gateInput.value = '';
+        } else {
+            gateSection.style.display = 'none';
+            nonGateSection.style.display = 'none';
+        }
+    }
+
+    // --- UI Logic: Mutually Exclusive Dropdowns ---
+    const choiceSelects = document.querySelectorAll('.person-choice');
+
+    function updateDropdowns() {
+        const selectedValues = Array.from(choiceSelects)
+                                    .map(select => select.value)
+                                    .filter(value => value !== "");
+
+        choiceSelects.forEach(select => {
+            const currentValue = select.value;
+            
+            Array.from(select.options).forEach(option => {
+                if (option.value === "") return;
+                
+                if (selectedValues.includes(option.value) && option.value !== currentValue) {
+                    option.disabled = true;
+                } else {
+                    option.disabled = false;
+                }
+            });
+        });
+    }
+
+    choiceSelects.forEach(select => {
+        select.addEventListener('change', updateDropdowns);
+    });
+
+    // --- Submission Logic: FreeForms Fetch API (FIXED for JSON) ---
+    async function handleSubmit(event) {
+        event.preventDefault();
+        const form = event.target;
+        const formData = new FormData(form);
+        const submitBtn = document.getElementById('submitBtn');
+
+        // Convert FormData into a clean JSON object
+        const formObject = Object.fromEntries(formData.entries());
+
+        // Provide visual feedback during submission
+        submitBtn.disabled = true;
+        submitBtn.innerText = "Submitting...";
+
+        try {
+            const res = await fetch("https://freeforms-app.web.app/f/QR9MwisFxKlgr5pBc3xw", {
+                method: "POST",
+                headers: { 
+                    "Accept": "application/json",
+                    // Explicitly tell the server we are sending clean JSON
+                    "Content-Type": "application/json" 
+                },
+                body: JSON.stringify(formObject) // Send as JSON string instead of raw FormData
+            });
+
+            if (res.ok) {
+                const json = await res.json();
+                // Alert the user and reset the form UI
+                alert(json.message || "Preference submitted successfully!");
+                form.reset();
+                toggleSections(); // Hide the conditional sections again
+                updateDropdowns(); // Reset the dropdown disabled states
+            } else {
+                alert("Something went wrong. Please try again.");
+            }
+        } catch (error) {
+            alert("Network error. Please check your connection.");
+        } finally {
+            // Restore button state
+            submitBtn.disabled = false;
+            submitBtn.innerText = "Submit Form";
+        }
+    }
+
+    document.getElementById("studentForm").addEventListener("submit", handleSubmit);
+</script>
+
+</body>
+</html>
